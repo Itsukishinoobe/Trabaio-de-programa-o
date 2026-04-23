@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c14hvmqutoeh0"]
+
+[ext_resource type="Script" uid="uid://b52oennyrbn4h" path="res://scripts/obito.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cmryqgi6nd4ws" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://dtilk8dbbmlu4" path="res://assets/315-3152524_renders-naruto-obito-obito-uchiha-kid-png-transparent.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://ba7cbu528njdn" path="res://scenes/asteroid.gd" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://1y2q1subpbuh" path="res://scripts/canvas_layer.gd" id="5_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(99.98776, 302.83533)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(306, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(1153, 3)
+
+[node name="Main" type="Node2D" unique_id=1463692775]
+script = ExtResource("1_jyhfs")
+
+[node name="Obito" type="CharacterBody2D" parent="." unique_id=814662214]
+position = Vector2(94, 247)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_0wfyh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obito" unique_id=802241872]
+scale = Vector2(0.62616277, 0.15250003)
+texture = ExtResource("1_o5qli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obito" unique_id=1543911950]
+rotation = -1.555104
+scale = Vector2(0.99999917, 0.99999917)
+shape = SubResource("RectangleShape2D_0wfyh")
+script = ExtResource("4_tbgi4")
+
+[node name="Area2D" type="Area2D" parent="Obito" unique_id=1479948889]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obito/Area2D" unique_id=37795224]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Obito" unique_id=1599721894]
+
+[node name="Timer" type="Timer" parent="." unique_id=1744423115]
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1156248754]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1943833469]
+position = Vector2(576.5, 1.5)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=901721464]
+script = ExtResource("5_tbgi4")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=82071367]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="game_over" from="Obito" to="." method="_on_obito_game_over"]
+[connection signal="area_entered" from="Obito/Area2D" to="Obito" method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="Obito/VisibleOnScreenNotifier2D" to="Obito" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="CanvasLayer" method="_on_timer_timeout"]
