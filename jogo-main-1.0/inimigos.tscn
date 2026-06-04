@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://06lfiv7vsef"]
+
+[ext_resource type="Script" uid="uid://cjoeut2ftrp03" path="res://Inimigos.gd" id="1_k2siq"]
+
+[node name="Node2D" type="Node2D" unique_id=4604030 groups=["Inimigos"]]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1538967112 groups=["Inimigos"]]
+script = ExtResource("1_k2siq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2123320732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=774091671]
+
+[node name="Spawner timer" type="Timer" parent="." unique_id=249330488]
+wait_time = 2.0

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dwr2ry3khwptc"]
+
+[ext_resource type="Script" uid="uid://bdx2fnnj1vbjv" path="res://olho.gd" id="1_hw42j"]
+[ext_resource type="Texture2D" uid="uid://cl8vnxdk2hnv1" path="res://assets/IMG-20260507-WA0050 (1).png" id="2_s4qpw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1hv0"]
+atlas = ExtResource("2_s4qpw")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxtgm"]
+atlas = ExtResource("2_s4qpw")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c5xb"]
+atlas = ExtResource("2_s4qpw")
+region = Rect2(0, 480, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6i3i0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1hv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxtgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c5xb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cjxul"]
+radius = 69.87131
+
+[node name="Node2D" type="Node2D" unique_id=1958002929]
+
+[node name="Olho" type="Area2D" parent="." unique_id=1150629738]
+position = Vector2(2, 2)
+script = ExtResource("1_hw42j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Olho" unique_id=1559081998]
+position = Vector2(311, 273)
+sprite_frames = SubResource("SpriteFrames_6i3i0")
+frame_progress = 0.926257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Olho" unique_id=1761950432]
+position = Vector2(276, 262)
+shape = SubResource("CircleShape2D_cjxul")

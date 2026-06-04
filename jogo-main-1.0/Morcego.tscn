@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://svu53ybopdec"]
+
+[ext_resource type="Texture2D" uid="uid://b2wf1wvybxctg" path="res://assets/MORCEGO 1 (1).png" id="1_ns1mu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3de3c"]
+atlas = ExtResource("1_ns1mu")
+region = Rect2(0, 400, 800, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s68v5"]
+atlas = ExtResource("1_ns1mu")
+region = Rect2(0, 0, 800, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5u4mq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3de3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s68v5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b0hu"]
+radius = 40.112343
+
+[node name="Node2D" type="Node2D" unique_id=1905763227]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1256042617]
+position = Vector2(-433, 68)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1547683017]
+position = Vector2(754, 291)
+scale = Vector2(-1.0479243, 1.260369)
+sprite_frames = SubResource("SpriteFrames_5u4mq")
+frame_progress = 0.45315105
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1919705322]
+position = Vector2(1028, 235)
+shape = SubResource("CircleShape2D_2b0hu")

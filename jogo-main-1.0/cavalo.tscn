@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bhr4cmyjlmorl"]
+
+[ext_resource type="Texture2D" uid="uid://c3fm8075gx7pi" path="res://assets/cavalo correndo png.png" id="1_4unt5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qii1"]
+atlas = ExtResource("1_4unt5")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sovtf"]
+atlas = ExtResource("1_4unt5")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vwc1"]
+atlas = ExtResource("1_4unt5")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kr55l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qii1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sovtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vwc1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blrax"]
+size = Vector2(9.53961, 8.3733635)
+
+[node name="Node2D" type="Node2D" unique_id=1114941015]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1732379098]
+position = Vector2(700, 269)
+scale = Vector2(-1.304498, 1.5659128)
+sprite_frames = SubResource("SpriteFrames_kr55l")
+frame_progress = 0.6152473
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="AnimatedSprite2D" unique_id=1294195247]
+position = Vector2(709.7908, -218.15053)
+rotation = 3.1415927
+scale = Vector2(1.1132663, -1.0233278)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CharacterBody2D" unique_id=718688163]
+position = Vector2(638.95215, 211.92952)
+rotation = -3.1415925
+scale = Vector2(4.11436, -4.397108)
+shape = SubResource("RectangleShape2D_blrax")
